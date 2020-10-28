@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+    <form method="GET" action="bai2get.php">
+        <label><b> Họ và tên: <b></label>
+        <input type="text" name = "hovaten"><br><br>
+        <label><b> Ngày sinh: </b></label>
+        <input type="date" name="ngaysinh"><br><br>
+        <label><b> Nơi sinh: </b></label>
+        <select name="noisinh">
+            <option>Hải Dương</option>
+            <option>Hà Nội</option>
+            <option>Quảng Trị</option>
+            <option>TP Hồ Chí Minh</option>
+        </select><br><br>
+        <label><b> Giới tính: </b></label>
+        <input type="radio" name="gioitinh" value="Nam"><i>Nam</i>
+        <input type="radio" name="gioitinh" value="Nữ"><i>Nữ</i></label><br><br>
+        <label><b> Ảnh </b></label>
+        <input type="file"><br><br>
+        <img src = "" width="100" height="100" style="margin-top: 10px"><br><br>
+        <label><b> Địa chỉ liên hệ </b></label>
+        <input type="text" name = "diachi" style="margin-top: 10px; margin-bottom: 10px" size="100"><br><br>
+        <label><b> Đào tạo </b></label><br>
+        <i>Học vấn</i>
+        <select name="hocvan" style="margin-top: 10px; margin-bottom: 10px">
+            <option>Cao đẳng</option>
+            <option>Cử nhân</option>
+            <option>Thạc sỹ</option>
+            <option>Tiến sỹ</option>
+        </select><br>
+        <i>Ngoại ngữ</i><br>
+        <input type="checkbox" name="ngoaingu" value="Anh"><i>Anh</i>
+        <input type="checkbox" name="ngoaingu" value="Pháp"><i>Pháp</i> 
+        <input type="checkbox" name="ngoaingu" value="Đức"><i>Duc</i>
+        <input type="checkbox" name="ngoaingu" value="Nga"><i>Nga</i>
+        <input type="checkbox" name="ngoaingu" value="Trung Quốc"><i>Trung Quốc</i>
+        <input type="checkbox" name="ngoaingu" value="Khác" style="margin-top: 10px"><i>Khác</i><br><br>
+        <label> Sở thích </label>
+        <select name="sothich">
+            <option>Du lịch</option>
+            <option>Đọc sách</option> 
+            <option>Xem phim</option>
+            <option>Golf</option>
+            <option>Tennis</option>
+            <option>Đá bóng</option>
+            <option>Khác</option>
+        </select><br><br>
+        <label>Ghi chú</label><br>
+        <textarea name="ghichu" rows="3" cols="50" style="margin-top: 10px"></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
