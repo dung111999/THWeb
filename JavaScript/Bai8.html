@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+	<i>Sở thích</i><br>
+	<input type="checkbox" name="Đá bóng" value="Đá bóng">Đá bóng
+	<input type="checkbox" name="Đá cầu" value="Đá cầu">Đá cầu
+	<input type="checkbox" name="Tenis" value="Tenis">Tenis
+	<input type="checkbox" name="Cầu lông" value="Cầu lông">Cầu lông
+	<input type="checkbox" name="Bóng bàn" value="Bóng bàn">Bóng bàn<br>
+	<i>Ngôn ngữ yêu thích nhất</i><br>
+	<input type="radio" name="favorite_language" value="Anh">Tiếng Anh
+	<input type="radio" name="favorite_language" value="Pháp">Tiếng Pháp 
+	<input type="radio" name="favorite_language" value="Đức">Tiếng Đức
+	<input type="radio" name="favorite_language" value="Trung">Tiếng Trung
+	<input type="radio" name="favorite_language" value="Nga">Tiếng Nga<br>
+	<button type="button" id = "check">Kiểm tra</button>
+
+	<script type="text/javascript">
+		const check = document.getElementById("check");
+		const checkboxes = document.querySelectorAll('input[type = "checkbox"]');
+		for(let i = 0; i < checkboxes.length; i++)
+		{
+			checkboxes[i].addEventListener("change", function() {
+				if(document.querySelectorAll('input[type = checkbox]:checked').length > 3)
+				{
+					alert("Không được chọn quá ba sở thích");
+					checkboxes[i].checked = false;
+				}
+			})
+		}
+
+		check.addEventListener("click", function() {
+			let result = "";
+			result += "Các sở thích: ";
+			let checkboxes_checked = document.querySelectorAll('input[type = checkbox]:checked');
+			for(let i = 0; i < checkboxes_checked.length; i++)
+			{
+				result += checkboxes_checked[i].value;
+				result += ", ";
+			}
+			result += "\nNgôn ngữ yêu thích nhất: ";
+			result += document.querySelectorAll('input[name = "favorite_language"]:checked')[0].value;
+			alert(result);
+		})
+	</script>
+</body>
+</html>

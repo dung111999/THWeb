@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+			.container {
+            margin-left: 35%;
+            width: 400px;
+            margin-top: 50px;
+        }
+
+        .box {
+            border: black 4px double;
+            height: 250px;
+        }
+
+        .area {
+            margin: 20px 0 0 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+			<div class="area">
+				<div>
+					Họ và tên<br>
+					<input type="checkbox" name="" value="Vân Anh">Nguyễn Thị Vân Anh<br>
+					<input type="checkbox" name="" value="Nam">Nguyễn Văn Nam<br>
+					<input type="checkbox" name="" value="Minh">Hoàng Lê Minh<br>
+					<input type="checkbox" name="" value="Nguyệt Anh">Võ Thị Nguyệt Anh<br>
+					<input type="checkbox" name="" value="Long">Hoàng Long<br>
+					<input type="checkbox" name="" value="A">Nguyễn Quang A<br>
+					<button type="button" id = "add" style="margin-top:8px">Lọc tên</button>
+				</div>
+
+				<div>	
+					<textarea id ="name" rows="9" cols="20" style="margin-right: 5px" readonly></textarea><br>
+					<button type="button" id = "remove">Xóa tên</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		let text_result = [];
+		let remove = document.getElementById("remove");
+		let add = document.getElementById("add");
+		let name = document.getElementById("name");
+
+		add.addEventListener("click", function() {
+			let check_boxes_checked = document.querySelectorAll('input[type=checkbox]:checked');
+			for(let i = 0; i < check_boxes_checked.length; i++)
+			{
+				if(!text_result.includes(check_boxes_checked[i].value))
+				{
+					text_result.push(check_boxes_checked[i].value);
+				}
+			}
+			name.innerText = "";
+			for(let i = 0; i < text_result.length; i++)
+			{
+				name.append(text_result[i]);
+				name.append('\r\n');
+			}
+		})
+
+		remove.addEventListener("click", function() {
+			let check_boxes_checked = document.querySelectorAll('input[type=checkbox]:checked');
+			for(let i = 0; i < check_boxes_checked.length; i++)
+			{
+				if(text_result.includes(check_boxes_checked[i].value))
+				{
+					text_result.splice(text_result.indexOf(check_boxes_checked[i].value), 1);
+				}
+			}
+			name.innerText = "";
+			for(let i = 0; i < text_result.length; i++)
+			{
+				name.append(text_result[i]);
+				name.append('\r\n');
+			}
+		})
+	</script>
+
+</body>
+</html>

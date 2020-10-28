@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+        .area {
+            margin: 20px 0 0 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .box {
+            border: black 4px double;
+            height: 250px;
+        }
+
+        .container {
+            margin-left: 35%;
+            width: 400px;
+            margin-top: 50px;
+        }
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+			<div class="area">
+				<div>
+					<i>Chọn một từ tiếng Anh</i><br>
+					<select name="word" id = "word" style="margin-top: 5px"></select><br>
+					<button type="button" id = "check" style="margin-left: 90px; margin-top: 5px">Kiểm tra</button>
+				</div>
+
+				<div>
+					<i>Giải nghĩa</i><br>
+					<textarea id="define_area" rows="12" cols="20" style="margin-top: 5px; margin-right: 5px" readonly></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		const select_word = document.getElementById("word");
+		const check = document.getElementById("check");
+		const define_area = document.getElementById("define_area");
+		let words = ["Chọn một từ tiếng Anh","hello","goodbye","good","English","boy","girl","male","female","gender","day"];
+		let translate = ["", "xin chào", "tạm biệt", "tốt","tiếng Anh","con trai","con gái","nam","nữ","giới tính","ngày"];
+		
+
+		for(let i in words)
+		{
+			let opt = document.createElement('option');
+			opt.text = words[i];
+			opt.value = translate[i];
+			select_word.add(opt);
+		}
+
+		check.addEventListener("click", function() {
+			if(select_word.value == "")
+			{
+				alert("Chọn một từ trước khi kiểm tra");
+			} else 
+			{
+				define_area.innerText = "";
+				define_area.append(select_word.value);
+			}
+		})
+	</script>
+</body>
+</html>

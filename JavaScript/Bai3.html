@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+		function count() {
+			document.getElementById("output").value = document.getElementById("input").value.length + 1;
+		}
+
+		function close_window() {
+			close();
+		}
+	</script>
+</head>
+<body>
+		<label>Textbox1</label>
+		<input type="text" id = "input" name="noidung" onkeydown="count();">
+		<label>Textbox2</label>
+		<input type="text" id = "output" name="kitu" disabled="disabled">
+		<input type="button" value="Close" onclick="close_window()" name="">
+</body>
+</html>

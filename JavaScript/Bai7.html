@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<i>Username</i><br>
+	<input style="margin-bottom: 20px; margin-top: 5px" id = "username" class="text"><br>
+	<i>Password</i><br>
+	<input style="margin-bottom: 10px; margin-top: 5px" id = "password" class="text"><br>
+	<button style="margin-left: 110px" id = "check">Kiểm tra</button>
+
+	<script type="text/javascript">
+		const check = document.getElementById("check");
+		const username = document.getElementById("username");
+		const password = document.getElementById("password");
+		let count_check = 0;
+
+		check.addEventListener("click", function () {
+        if (count_check >= 3) 
+        {
+            username.setAttribute("disabled", null);
+            password.setAttribute("disabled",null);
+        } else 
+        {
+            if (username.value === "Administrator" && password.value === "Admin") {
+                alert("Đúng");
+                count_check = 0;
+            } 
+            else 
+            {
+                alert(`Sai lần ${count_check + 1}`);
+                count_check++;
+            }
+        }
+    })
+	</script>
+</body>
+</html>

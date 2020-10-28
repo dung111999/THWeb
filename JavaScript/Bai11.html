@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.container {
+            margin-left: 35%;
+            width: 400px;
+            margin-top: 50px;
+        }
+
+        .box {
+            border: black 4px double;
+            height: 250px;
+        }
+
+        .area {
+            margin: 20px 0 0 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+	</style>
+</head>
+<body>
+	<div class = "container">
+		<div class="box">
+			<div class="area">
+				<div>
+					<i>Sở thích</i><br><br>
+					<i>Đá bóng</i><input type="checkbox" name="Đá bóng" value="Đá bóng" style="margin-left: 10px"><br>
+					<i>Đá cầu</i><input type="checkbox" name="Đá cầu" value="Đá cầu" style="margin-left: 19px"><br>
+					<i>Tenis</i><input type="checkbox" name="Tenis" value="Tenis" style="margin-left: 32px"><br>
+					<i>Cầu lông</i><input type="checkbox" name="Cầu lông" value="Cầu lông" style="margin-left: 6px"><br>
+					<i>Bóng bàn</i><input type="checkbox" name="Bóng bàn" value="Bóng bàn"><br><br>
+					<button type="button" id = "add" style="margin-left: 15px">Thêm cả</button>
+				</div>
+
+				
+				<div>
+					<textarea id = "list_hobby" rows="14" cols="30" style="margin-right: 5px" readonly></textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		let text_result = [];
+		let check_boxes = document.querySelectorAll('input[type=checkbox]');
+		let add_all = document.getElementById("add");
+		let list_hobby = document.getElementById("list_hobby");
+
+		add_all.addEventListener("click", function() {
+			for(let i = 0; i < check_boxes.length; i++)
+			{
+				check_boxes[i].checked = true;
+				text_result.push(check_boxes[i].value);
+			}
+			list_hobby.innerText = "";
+			for(let i = 0; i < text_result.length; i++)
+			{
+				list_hobby.append(text_result[i]);
+				list_hobby.append('\r\n');
+			}
+		})
+
+		for(let i = 0; i < check_boxes.length; i++)
+		{
+			check_boxes[i].addEventListener("change", function() {
+				if(!text_result.includes(this.value))
+				{
+					text_result.push(this.value);
+				} else 
+				{
+					text_result.splice(text_result.indexOf(this.value), 1);
+				}
+				list_hobby.innerText = "";
+				for(let i = 0; i < text_result.length; i++)
+				{
+					list_hobby.append(text_result[i]);
+					list_hobby.append('\r\n');
+				}
+			})
+		}
+	</script>
+</body>
+</html>

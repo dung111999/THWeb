@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.boxCalculator{
+			width: 372px;
+			height: 50px;
+			background-color: #f7f8f9;
+			border: 1px solid #666;
+			padding: 5px 7px;
+			font-size: 22px;
+			margin-left: 2px;
+			text-align: right;
+		}
+
+		.button, .equal, .clear{
+			width: 70px;
+			height: 50px;
+			font-size: 25px;
+			margin: 2px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<form name="form">
+		<input type="text" class="boxCalculator" name="txt">
+		<table>
+			<tr>
+				<td><input class="button" type="button" name="" value="9" onclick="document.form.txt.value += '9'"></td>
+				<td><input class="button" type="button" name="" value="8" onclick="document.form.txt.value += '8'"></td>
+				<td><input class="button" type="button" name="" value="7" onclick="document.form.txt.value += '7'"></td>
+				<td><input class="button" type="button" name="" value="+" onclick="document.form.txt.value += '+'"></td>
+				<td><input class="clear" type="button" name="" value="C" onclick="c()"></td>
+			</tr>
+			<tr>
+				<td><input class="button" type="button" name="" value="6" onclick="document.form.txt.value += '6'"></td>
+				<td><input class="button" type="button" name="" value="5" onclick="document.form.txt.value += '5'"></td>
+				<td><input class="button" type="button" name="" value="4" onclick="document.form.txt.value += '4'"></td>
+				<td><input class="button" type="button" name="" value="-" onclick="document.form.txt.value += '-'"></td>
+				<td><input class="button" type="button" name="" value="Xóa" onclick="xoa()"></td>
+			</tr>
+			<tr>
+				<td><input class="button" type="button" name="" value="3" onclick="document.form.txt.value += '3'"></td>
+				<td><input class="button" type="button" name="" value="2" onclick="document.form.txt.value += '2'"></td>
+				<td><input class="button" type="button" name="" value="1" onclick="document.form.txt.value += '1'"></td>
+				<td><input class="button" type="button" name="" value="*" onclick="document.form.txt.value += '*'"></td>
+				<td rowspan="4"><input class="equal"  type="button" name="" value="=" style="height: 107px"  onclick="equal()"></td>
+			</tr>
+			<tr>
+				<td><input class="button" type="button" name="" value="-/+"></td>
+				<td><input class="button" type="button" name="" value="0" onclick="document.form.txt.value += '0'"></td>
+				<td><input class="button" type="button" name="" value="." onclick="document.form.txt.value += '.'"></td>
+				<td><input class="button" type="button" name="" value="/" onclick="document.form.txt.value += '/'"></td>
+			</tr>
+		</table>
+	</form>
+
+	<script type="text/javascript">
+		function equal()
+		{
+			var exp = document.form.txt.value;
+			console.log(exp);
+			if(exp)
+			{
+				document.form.txt.value = eval(exp);
+			}
+		}
+
+		function c()
+		{
+			var exp = document.form.txt.value;
+			document.form.txt.value = exp.substring(0,exp.length-1);
+		}
+
+		function xoa()
+		{
+			document.form.txt.value = "";
+		}
+	</script>
+</body>
+</html>

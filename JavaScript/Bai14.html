@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.area {
+            margin: 20px 650px 0 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+	</style>
+</head>
+<body>
+	<div class="area">
+		<div>
+			Từ<br>
+			<input type="text" name="" id = "input_word"><br>
+			<button type="button" id = "count" style="margin-top: 5px; margin-left: 130px">Đếm</button>
+		</div>
+
+		<div>
+			Văn bản<br>
+			<textarea id = "text_area" rows="10" cols="20"></textarea>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		let count_word = document.getElementById("count");
+		let text_area = document.getElementById("text_area");
+		let input_word = document.getElementById("input_word");
+		count_word.addEventListener("click", function() {
+			let count = 0;
+			text_area.value.split(" ").forEach(function(word) {
+				if(input_word.value.split(" ")[0] == word)
+				{
+					count++;
+				}
+			})
+			alert(`Chữ "${input_word.value.split(" ")[0]}" xuất hiện ${count} lần `);
+		})
+	</script>
+</body>
+</html>

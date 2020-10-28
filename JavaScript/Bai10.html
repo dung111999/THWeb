@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		.define-box {
+            border: black 1px solid;
+            height: 150px;
+            width: 150px;
+            margin-right: 15px;
+        }
+
+        .define-area {
+            margin: 5px 0 0 3px;
+        }
+
+        .area {
+            margin: 20px 0 0 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .box {
+            border: black 4px double;
+            height: 250px;
+        }
+
+        .container {
+            margin-left: 35%;
+            width: 400px;
+            margin-top: 50px;
+        }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="box">
+			<div class="area">
+				<div class="chon">
+					<i>Danh sách từ</i><br>
+					<select name="word" id = "word" style="margin-top: 5px"></select><br>
+				</div>
+
+				<div class="define">
+					<i>Danh sách nghĩa</i><br>
+					<select name="define" id = "define" style="margin-top: 5px; margin-right: 5px"></select><br>
+					<button type="button" id = "close" style="margin-left: 110px; margin-top: 5px">Đóng</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		const select_word = document.getElementById("word");
+		const define = document.getElementById("define");
+		const close = document.getElementById("close");
+
+		let words = ["Chọn một từ tiếng Anh","hello","goodbye","good","English","boy","girl","male","female","gender","day"];
+		let translate = ["Chọn một từ tiếng Việt", "xin chào", "tạm biệt", "tốt","tiếng Anh","con trai","con gái","nam","nữ","giới tính","ngày"];
+
+		for(let i in words)
+		{
+			let opt = document.createElement('option');
+			let opt_translate = document.createElement('option');
+			opt.text = words[i];
+			opt.value = translate[i];
+			opt_translate.text = translate[i];
+			opt_translate.value = words[i];
+			select_word.add(opt);
+			define.add(opt_translate);
+		}
+
+		select_word.addEventListener("change", function() {
+			for(let i = 0; i < define.options.length; i++)
+			{
+				if(this.value == define.options[i].text)
+				{
+					define.options[i].selected = true;
+				}
+			}
+		})
+
+		define.addEventListener("change", function() {
+			for(let i = 0; i < select_word.options.length; i++)
+			{
+				if(this.value == select_word.options[i].text)
+				{
+					select_word.options[i].selected = true;
+				}
+			}
+		})
+
+		close.addEventListener("click", function() {
+			window.close();
+		})
+	</script>
+</body>
+</html>
